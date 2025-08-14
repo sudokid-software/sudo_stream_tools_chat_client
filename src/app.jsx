@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef } from "preact/hooks"
-import "./app.css"
+import "./index.css"
 import { createChannel } from "./socket"
 
 export function App() {
@@ -7,9 +7,19 @@ export function App() {
   const messagesRef = useRef(null)
 
   const [room, setRoom] = useState(null)
+  const [theme, setTheme] = useState(null)
   useEffect(() => {
     const params = new URLSearchParams(window.location.search)
     setRoom(params.get("room") || "lobby")
+
+    const cssTheme = params.get("theme") || "default" // e.g., "?theme=dark"
+    if (!["default"].includes(cssTheme)) return;
+
+    if (cssTheme) {
+      import(`./themes/${cssTheme}.css`)
+        .then(() => console.log(`Loaded ${cssTheme}.css`))
+        .catch(() => console.error(`Failed to load ${cssTheme}.css`))
+    }
   }, []) // Run only once on mount
 
   // Keep a single channel reference

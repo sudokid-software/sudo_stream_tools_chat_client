@@ -1,0 +1,22 @@
+#messages {
+  height: 100vh;
+  overflow-y: auto;
+  border-radius: 8px;
+  font-family: Arial, sans-serif;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end; /* stick messages to bottom */
+}
+
+.message {
+  background: #222;
+  color: white;
+  margin-bottom: 0.5rem;
+}
+
+.username {
+  font-weight: bold;
+  margin-right: 0.5rem;
+  color: #61dafb;
+}
