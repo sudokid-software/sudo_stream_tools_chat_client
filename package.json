@@ -9,6 +9,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "phoenix": "^1.8.0",
     "preact": "^10.27.0"
   },
   "devDependencies": {

@@ -1,43 +1,60 @@
-import { useState } from 'preact/hooks'
-import preactLogo from './assets/preact.svg'
-import viteLogo from '/vite.svg'
-import './app.css'
+import { useState, useEffect, useRef } from "preact/hooks"
+import "./app.css"
+import { createChannel } from "./socket"
 
 export function App() {
-  const [count, setCount] = useState(0)
+  const [messages, setMessages] = useState([])
+  const messagesRef = useRef(null)
+
+  const [room, setRoom] = useState(null)
+  useEffect(() => {
+    const params = new URLSearchParams(window.location.search)
+    setRoom(params.get("room") || "lobby")
+  }, []) // Run only once on mount
+
+  // Keep a single channel reference
+  const channelRef = useRef(null)
+
+  useEffect(() => {
+    console.log("I'm running HERE!")
+    if (!room) return // wait until room is known
+    if (channelRef.current) return // channel already created
+
+    const channel = createChannel(room)
+    channelRef.current = channel
+
+    channel.on("new_chat_message", payload => {
+      setMessages(prev => [...prev, payload])
+    })
+
+    console.log("I'm connecting multiple times")
+    channel.join()
+      .receive("ok", () => console.log(`Joined chat_room:${room}`))
+      .receive("error", resp => console.error("Failed to join", resp))
+
+    return () => {
+      if (channelRef.current) {
+        channelRef.current.leave()
+        channelRef.current = null
+      }
+    }
+  }, [room])
+
+
+  useEffect(() => {
+    if (messagesRef.current) {
+      messagesRef.current.scrollTop = messagesRef.current.scrollHeight
+    }
+  }, [messages])
 
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} class="logo" alt="Vite logo" />
-        </a>
-        <a href="https://preactjs.com" target="_blank">
-          <img src={preactLogo} class="logo preact" alt="Preact logo" />
-        </a>
-      </div>
-      <h1>Vite + Preact</h1>
-      <div class="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/app.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p>
-        Check out{' '}
-        <a
-          href="https://preactjs.com/guide/v10/getting-started#create-a-vite-powered-preact-app"
-          target="_blank"
-        >
-          create-preact
-        </a>
-        , the official Preact + Vite starter
-      </p>
-      <p class="read-the-docs">
-        Click on the Vite and Preact logos to learn more
-      </p>
-    </>
+    <div id="messages" ref={messagesRef}>
+      {messages.map((m, i) => (
+        <div class="message" key={i}>
+          <span class="username">{m.chatter_username}</span>
+          <span class="text">{m.message_text}</span>
+        </div>
+      ))}
+    </div>
   )
 }
