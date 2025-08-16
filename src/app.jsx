@@ -26,7 +26,6 @@ export function App() {
   const channelRef = useRef(null)
 
   useEffect(() => {
-    console.log("I'm running HERE!")
     if (!room) return // wait until room is known
     if (channelRef.current) return // channel already created
 
@@ -37,7 +36,6 @@ export function App() {
       setMessages(prev => [...prev, payload])
     })
 
-    console.log("I'm connecting multiple times")
     channel.join()
       .receive("ok", () => console.log(`Joined chat_room:${room}`))
       .receive("error", resp => console.error("Failed to join", resp))
