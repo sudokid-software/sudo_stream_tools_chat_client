@@ -1,0 +1,52 @@
+:root {
+    --color-primary: #3b82f6;
+    --color-primary-rgb: 59, 130, 246;
+    --color-primary-content: #ffffff;
+    --color-primary-content-rgb: 255, 255, 255;
+
+    --color-secondary: #9333ea;
+    --color-secondary-rgb: 147, 51, 234;
+    --color-secondary-content: #ffffff;
+    --color-secondary-content-rgb: 255, 255, 255;
+
+    --color-accent: #f59e0b;
+    --color-accent-rgb: 245, 158, 11;
+    --color-accent-content: #ffffff;
+    --color-accent-content-rgb: 255, 255, 255;
+
+    --color-neutral: #1f2937;
+    --color-neutral-rgb: 31, 41, 55;
+    --color-neutral-content: #ffffff;
+    --color-neutral-content-rgb: 255, 255, 255;
+
+    --color-base-100: #111827;
+    --color-base-100-rgb: 17, 24, 39;
+    --color-base-200: #1f2937;
+    --color-base-200-rgb: 31, 41, 55;
+    --color-base-300: #374151;
+    --color-base-300-rgb: 55, 65, 81;
+    --color-base-content: #ffffff;
+    --color-base-content-rgb: 255, 255, 255;
+
+    --color-info: #3b82f6;
+    --color-info-rgb: 59, 130, 246;
+    --color-info-content: #ffffff;
+    --color-info-content-rgb: 255, 255, 255;
+
+    --color-success: #10b981;
+    --color-success-rgb: 16, 185, 129;
+    --color-success-content: #ffffff;
+    --color-success-content-rgb: 255, 255, 255;
+
+    --color-warning: #f59e0b;
+    --color-warning-rgb: 245, 158, 11;
+    --color-warning-content: #ffffff;
+    --color-warning-content-rgb: 255, 255, 255;
+
+    --color-error: #ef4444;
+    --color-error-rgb: 239, 68, 68;
+    --color-error-content: #ffffff;
+    --color-error-content-rgb: 255, 255, 255;
+
+    --font-sans: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+}

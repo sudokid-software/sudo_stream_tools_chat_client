@@ -41,8 +41,7 @@ export function ChatWindowComponent({ room }) {
           }} class="username">{m.chatter_username}</a>
           <span class="text">{m.message_text}</span>
         </div>
-      ))
-      }
+      ))}
     </div >
   )
 }

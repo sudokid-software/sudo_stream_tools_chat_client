@@ -1,0 +1,89 @@
+html,
+body {
+    font-family: var(--font-sans);
+    background-color: var(--color-base-100);
+    color: var(--color-primary-content);
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    background-color: var(--color-base-200);
+}
+
+ul.pill-list {
+    border-radius: 5px;
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+ul.pill-list li {
+    border: 1px solid black;
+    border-bottom-width: 3px;
+    border-bottom-color: black;
+    border-radius: 10px;
+    background-color: var(--color-neutral-content);
+    color: var(--color-primary);
+    padding: 4px 10px;
+    margin-left: 5px;
+    margin-bottom: 5px;
+    /* box-shadow: 2px 2px 2px grey; */
+}
+
+ul.pill-list li ~ ul {
+    margin-left: 0;
+}
+
+.btn {
+    background-color: var(--color-primary);
+    border: none;
+    border-radius: 4px;
+    color: var(--color-neutral-content);
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+}
+
+.tooltip {
+  position: relative;
+  display: inline-block;
+  border-bottom: 1px dotted black;
+}
+
+.tooltip .tooltiptext {
+  visibility: hidden;
+  width: 120px;
+  background-color: #555;
+  color: #fff;
+  text-align: center;
+  border-radius: 6px;
+  padding: 5px 0;
+  position: absolute;
+  z-index: 1;
+  bottom: 125%;
+  left: 50%;
+  margin-left: -60px;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.tooltip .tooltiptext::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: #555 transparent transparent transparent;
+}
+
+.tooltip:hover .tooltiptext {
+  visibility: visible;
+  opacity: 1;
+}

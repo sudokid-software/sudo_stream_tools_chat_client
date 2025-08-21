@@ -20,9 +20,22 @@ body,
   overflow-y: auto;
 }
 
-.chat-form {
-  /* height: 50px; */
+.chat-form form {
+  height: 50px;
+  width: 100%;
+  display: flex;
 }
+
+.chat-form button {
+  padding: 1px 15px ;
+  font-size: larger;
+}
+
+.chat-form input{
+  width: 100%;
+  font-size: large;
+}
+
 
 #messages {
   display: flex;

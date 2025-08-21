@@ -1,7 +1,7 @@
-import { useState, useEffect, useRef } from "preact/hooks";
-import { ChatWindowComponent } from "../components/ChatWindowComponent.jsx";
+import { useState, useEffect } from "preact/hooks";
+import { ChatWindowComponent } from "../../components/ChatWindowComponent";
 
-export function OverlayApp() {
+export function ChatOverlayApp() {
   const [room, setRoom] = useState(null);
 
   // Load CSS and room from URL

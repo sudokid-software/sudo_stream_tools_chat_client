@@ -1,0 +1,44 @@
+/* .account-app-container {
+    display: flex;
+    flex-direction: row;
+    flex-shrink: 3;
+}
+
+.account-app-oauth-records {
+    background-color: red;
+    width: 50%;
+}
+
+.account-app-room-records {
+    background-color: pink;
+    width: 50%;
+} */
+
+.oauth-record {
+    display: flex;
+    margin-top: 15px;
+    min-width: 410px;
+}
+
+.oauth-record img {
+    width: 125px;
+    height: 125px;
+    border-radius: 10px;
+}
+
+.oauth-record h2 {
+    margin: 0;
+}
+
+.oauth-record .data {
+    padding-left: 15px;
+    width: 600px;
+}
+
+.oauth-record .data .header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-end;
+    width: 100%;
+}
